@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+  {% block content %}
+    
+
+    <style>
+      .myForm {
+        display: grid;
+        grid-template-columns: [labels] auto [controls] 1fr;
+        grid-auto-flow: row;
+        grid-gap: .8em;
+        background: beige;
+        padding: 1.2em;
+        font-size: 24px;
+      }
+      .myForm > label  {
+        grid-column: labels;
+        grid-row: auto;
+      }
+      .myForm > input,
+      .myForm > textarea
+      .myform > two-col {
+        grid-column: controls;
+        grid-row: auto;
+        font-size: 24px;
+      }
+      .myForm > button {
+        width: 300px;
+        height: 75px;
+        font-size: 30px;
+        font-weight: bold;
+      }  
+
+      .two-col > button {
+        width: 300px;
+        height: 75px;
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .two-col > label {
+        width: 100px;
+        font-size: 30px;
+        font-weight: bold;
+        margin-left: 20px;
+        border: 2px solid #ccc;
+      }
+
+    </style>
+
+    {% block title %}
+      <h1><center>California House Price Estimator</center></h1>
+    {% endblock %}
+
+    <hr>
+
+    {% if result %}
+      <p><h1>The estimated price of house with previous details is: <span style="color: red;">{{ result }}</span></h1></p>
+    {% endif %}
+  <hr>
+
+    <form class="myForm" action="/house-price/predict/" method="POST">
+      Median Income: <input type="medInc" name="medInc" required placeholder="Number" />
+      House Age: <input type="houseAge" name="houseAge" required placeholder="Number" />
+      Nos of Rooms: <input type="aveBrRooms" name="aveRooms" required placeholder="Number" />
+      Nos of Bedrooms: <input type="aveBedrms" name="aveBedrms" required placeholder="Number" />
+      Block Population: <input type="population" name="population" required placeholder="Number" />
+      Occupancy per House: <input type="aveOccup" name="aveOccup" required placeholder="Number" />
+      Latitude: <input type="latitude" name="latitude" required placeholder="Number" />
+      Longitude: <input type="longitude" name="longitude" required placeholder="Number" />
+      
+
+      <p class="two-col">
+        <button>Submit</button>
+
+    
+      </p><br>
+     
+    </form>
+  {% endblock %}
+  
+
+      <!--
+
+    <style>
+      label {
+        display: block;
+        width: 200px;
+        margin: 10px 0;
+        font-size: 24px;
+      }
+
+      input {
+        width: 200px;
+        height: 30px;
+        padding: 2px;
+        margin: 10px 0;
+        border-radius: 15px;
+        border: 2px solid black;
+        font-size: 24px;
+      }
+    </style>
+
+    <label for="medInc">Median Income :</label>
+      <input type="number" id="medInc" name="medInc" placeholder="Number" /><br>
+      <label for="houseAge">House Age :</label>
+      <input type="number" id="houseAge" name="houseAge" placeholder="Number" /><br>
+      
+      <p style="font-weight: bold; font-size: 24px">
+        
+      </p>
+      <p style="font-weight: bold; font-size: 24px">
+        
+      </p>
+      <p style="font-weight: bold; font-size: 24px">
+        
+      </p>
+      <p style="font-weight: bold; font-size: 24px">
+        
+      </p>
+      <p style="font-weight: bold; font-size: 24px">
+        
+      </p>
+      <p style="font-weight: bold; font-size: 24px">
+       
+      </p>
+      <p style="font-weight: bold; font-size: 24px">
+       
+      </p>
+      <p style="font-weight: bold; font-size: 24px">
+        
+      </p>
+      <p style="font-weight: bold; font-size: 24px">
+        
+      </p>
+      <var></var>
+  
+
+  'medInc': 200000,
+            'houseAge': 10,
+            'aveRooms': 4,
+            'aveBedrms': 1,
+            'population': 800,
+            'aveOccup': 3,
+            'latitude': 37.54,
+            'longitude': -121.72
+
+            <label for="field1">Field One:</label>
+            <input id="field1" name="field1" type="text">
+
+        <div class="col2">
+            <label for="field2">Field Two:</label>
+            <input id="field2" name="field2" type="text">
+        </div>
+  -->
